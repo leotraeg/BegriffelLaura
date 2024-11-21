@@ -12,8 +12,8 @@ function submitGuess() {
     currentGuess = input_1.value + input_2.value + input_3.value + input_4.value + input_5.value;
     currentGuess = currentGuess.toUpperCase()
     
-    if (guesses.length >= 6) {
-        alert('Keine Versuche mehr übrig!');
+    if (guesses.length > 6) {
+        alert(`Bis heute abend <3. Das Wort war: ${targetWord}`);
         return;
     }
 
@@ -23,10 +23,8 @@ function submitGuess() {
     if (currentGuess === targetWord) {
         alert('Wohoooooo! Bis heute abend <3');
     } else if (guesses.length === 6) {
-        alert(`Ein zusätzlicher :)`);
-    } else if (guesses.length === 7) {
-        alert(`Bis heute abend <3. Das Wort war: ${targetWord}`);
-    }
+        alert(`Ein zusätzlicher Hasenversuch!)`);
+    } 
 }
 
 function updateGameBoard() {
