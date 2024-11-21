@@ -21,11 +21,11 @@ function submitGuess() {
     guesses.push(currentGuess);
 
     if (currentGuess === targetWord) {
-        alert('Wohoooooo!');
+        alert('Wohoooooo! Bis heute abend <3');
     } else if (guesses.length === 6) {
-        alert(`Ein zusätzlicher Hasenversuch`);
+        alert(`Ein zusätzlicher :)`);
     } else if (guesses.length === 7) {
-        alert(`Das Spiel ist vorbei! Das Wort war: ${targetWord}`);
+        alert(`Bis heute abend <3. Das Wort war: ${targetWord}`);
     }
 }
 
