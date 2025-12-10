@@ -1,4 +1,3 @@
-
 const wordDictionary = {
     "30.11": "RESET", 
     "01.12": "GLANZ",
@@ -9,6 +8,14 @@ const wordDictionary = {
     "06.12": "HONIG", 
     "07.12": "BAUCH", 
     "08.12": "PFOTE", 
+    "09.12": "SAUER",
+    "10.12": "OHREN",
+    "11.12": "AUGEN",
+    "12.12": "STRAND",
+    "13.12": "TEILE",
+    "14.12": "ROLLE",
+    "15.12": "PUNKT",
+    "16.12": "LECKT"
 };
 
 const giftDictionary = {
@@ -21,7 +28,19 @@ const giftDictionary = {
     "06.12": "Lebkuchenmann",
     "07.12": "Weihnachtsbaum", 
     "08.12": "Hase", 
-}
+    "09.12": "Orange",
+    "10.12": "Mütze",
+    "11.12": "Würfel",
+    "12.12": "Palme",
+    "13.12": "Puzzlestück",
+    "14.12": "Schneemann",
+    "15.12": "Geschenk",
+    "16.12": "Muffin"
+};
+
+
+
+
 
 // --- Funktion zum Abrufen des heutigen Zielworts ---
 function getTargetWord(today) {    
@@ -49,9 +68,9 @@ function getGiftWord(today) {
 }
 
 // Das aktuelle Zielwort wird einmal beim Laden der Seite gesetzt.
-const targetWord = getTargetWord(new Date()); 
-const giftWord = getGiftWord(new Date());
-const maxGuesses = 6;
+let targetWord = getTargetWord(new Date()); 
+let giftWord = getGiftWord(new Date());
+let maxGuesses = 6;
 let currentGuess = '';
 let guesses = [];
 // Funktion zum Zurücksetzen des Spiels, wenn das Limit erreicht ist
@@ -217,3 +236,50 @@ document.querySelectorAll('input[type="text"]').forEach((input, index, inputs) =
         }
     });
 });
+
+// ---- ZU SPÄT CODE -------
+
+function setLateSolve(dateKey = "09.12") {
+    // 1. Spiel zurücksetzen (alte Versuche löschen)
+    resetGame(); 
+    
+    const lateTargetWord = wordDictionary[dateKey];
+    const lateGiftWord = giftDictionary[dateKey];
+    
+    if (lateTargetWord && lateGiftWord) {
+        // Die globalen let-Variablen neu zuweisen (WICHTIG!)
+        targetWord = lateTargetWord.toUpperCase(); 
+        giftWord = lateGiftWord;
+        
+        alert(`🤫 Nachträgliches ${dateKey}-Begriffel!`);
+        
+        // Button ausblenden
+        const button = document.getElementById('late-solve-9-12');
+        if (button) {
+            button.style.display = 'none';
+        }
+    } else {
+        alert("Fehler: Das Wort für den 09.12. konnte nicht geladen werden.");
+    }
+}
+function checkAndShowLateSolveButton() {
+    const today = new Date();
+    // Verwenden Sie getUTCFullYear() und getUTCMonth(), um Zeitzonenfehler zu vermeiden. 
+    // Wir bleiben aber bei der lokalen Zeit, da dies ein lokales Geschenk ist.
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth() + 1; // getMonth() ist 0-basiert
+    const currentYear = today.getFullYear();
+    
+    // Bedingung: Ist heute der 10.12.2025?
+    if (currentDay === 10 && currentMonth === 12 && currentYear === 2025) {
+        const button = document.getElementById('late-solve-9-12');
+        if (button) {
+            button.style.display = 'block'; // Oder 'inline-block', je nach Layout
+            button.onclick = () => setLateSolve("09.12"); // Event-Handler setzen
+        }
+    }
+}
+
+// Fügen Sie diesen Aufruf am Ende Ihres Skripts ein (oder in Ihrer window.onload Funktion)
+checkAndShowLateSolveButton();
+// ---- ZU SPÄT CODE -------
