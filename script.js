@@ -11,7 +11,7 @@ const wordDictionary = {
     "09.12": "SAUER",
     "10.12": "OHREN",
     "11.12": "AUGEN",
-    "12.12": "STRAND",
+    "12.12": "SONNE",
     "13.12": "TEILE",
     "14.12": "ROLLE",
     "15.12": "PUNKT",
@@ -239,7 +239,7 @@ document.querySelectorAll('input[type="text"]').forEach((input, index, inputs) =
 
 // ---- ZU SPÄT CODE -------
 
-function setLateSolve(dateKey = "09.12") {
+function setLateSolve(dateKey = "12.12") {
     // 1. Spiel zurücksetzen (alte Versuche löschen)
     resetGame(); 
     
@@ -254,12 +254,12 @@ function setLateSolve(dateKey = "09.12") {
         alert(`🤫 Nachträgliches ${dateKey}-Begriffel!`);
         
         // Button ausblenden
-        const button = document.getElementById('late-solve-9-12');
+        const button = document.getElementById('late-solve');
         if (button) {
             button.style.display = 'none';
         }
     } else {
-        alert("Fehler: Das Wort für den 09.12. konnte nicht geladen werden.");
+        alert(`Fehler: Das Wort für den ${dateKey} konnte nicht geladen werden.`);
     }
 }
 function checkAndShowLateSolveButton() {
@@ -270,12 +270,11 @@ function checkAndShowLateSolveButton() {
     const currentMonth = today.getMonth() + 1; // getMonth() ist 0-basiert
     const currentYear = today.getFullYear();
     
-    // Bedingung: Ist heute der 10.12.2025?
-    if (currentDay === 10 && currentMonth === 12 && currentYear === 2025) {
-        const button = document.getElementById('late-solve-9-12');
+    if (currentDay === 13 && currentMonth === 12 && currentYear === 2025) {
+        const button = document.getElementById('late-solve');
         if (button) {
             button.style.display = 'block'; // Oder 'inline-block', je nach Layout
-            button.onclick = () => setLateSolve("09.12"); // Event-Handler setzen
+            button.onclick = () => setLateSolve("12.12"); // Event-Handler setzen
         }
     }
 }
