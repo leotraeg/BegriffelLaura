@@ -15,7 +15,15 @@ const wordDictionary = {
     "13.12": "TEILE",
     "14.12": "ROLLE",
     "15.12": "PUNKT",
-    "16.12": "LECKT"
+    "16.12": "LECKT",
+    "17.12": "LICHT",
+    "18.12": "FROST",
+    "19.12": "KLANG",
+    "20.12": "TRANK",
+    "21.12": "PLATZ",
+    "22.12": "NASEN",
+    "23.12": "HEISS",
+    "24.12": "GLANZ"
 };
 
 const giftDictionary = {
@@ -35,7 +43,15 @@ const giftDictionary = {
     "13.12": "Puzzlestück",
     "14.12": "Schneemann",
     "15.12": "Geschenk",
-    "16.12": "Muffin"
+    "16.12": "Muffin",
+    "17.12": "Stern",
+    "18.12": "Socke",
+    "19.12": "Glocke",
+    "20.12": "Weinglas",
+    "21.12": "Rakete",
+    "22.12": "Rentier",
+    "23.12": "Handschuh",
+    "24.12": "Glaskugel"
 };
 
 
@@ -270,11 +286,11 @@ function checkAndShowLateSolveButton() {
     const currentMonth = today.getMonth() + 1; // getMonth() ist 0-basiert
     const currentYear = today.getFullYear();
     
-    if (currentDay === 13 && currentMonth === 12 && currentYear === 2025) {
+    if (currentDay === 18 && currentMonth === 12 && currentYear === 2025) {
         const button = document.getElementById('late-solve');
         if (button) {
             button.style.display = 'block'; // Oder 'inline-block', je nach Layout
-            button.onclick = () => setLateSolve("12.12"); // Event-Handler setzen
+            button.onclick = () => setLateSolve("17.12"); // Event-Handler setzen
         }
     }
 }
