@@ -23,7 +23,8 @@ const wordDictionary = {
     "21.12": "PLATZ",
     "22.12": "NASEN",
     "23.12": "HEISS",
-    "24.12": "GLANZ"
+    "24.12": "GLANZ",
+    "29.12": "MILCH"
 };
 
 const giftDictionary = {
@@ -51,7 +52,8 @@ const giftDictionary = {
     "21.12": "Rakete",
     "22.12": "Rentier",
     "23.12": "Handschuh",
-    "24.12": "Glaskugel"
+    "24.12": "Glaskugel",
+    "29.12": "Anne"
 };
 
 
